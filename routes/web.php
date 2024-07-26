@@ -33,7 +33,7 @@ Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('blog', [HomeController::class, 'blog']);
 Route::get('/portfolio', [HomeController::class, 'portfolio']);
 Route::get('/error', [HomeController::class, 'error']);
-Route::post('/User', [UserController::class, 'getData']);
+Route::post('/User', [UserController::class, 'getData'])->name('User');
 
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin', 'index')->name('admin');

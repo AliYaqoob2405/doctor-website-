@@ -17,10 +17,10 @@ class HomeController extends Controller
     {
 
         $diseases = Disease::all();
-        //dd($diseases);
+
         return view('pages.contact',['diseases' => $diseases]);
 
-        // return view('pages.contact');
+        
     }
 
     public function blog()

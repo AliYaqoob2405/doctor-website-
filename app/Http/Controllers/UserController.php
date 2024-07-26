@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\models\User;
 use App\models\Disease;
-
+use App\Mail\UserFilledForm;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -39,6 +40,7 @@ class UserController extends Controller
         $Data->status = $req['status'];
          $Data->save();
        // Redirect back or show a success message
+       Mail::to($req->email)->send(new UserFilledForm($Data));
          return redirect()->back()->with('success', 'Data saved successfully!');
 
 
